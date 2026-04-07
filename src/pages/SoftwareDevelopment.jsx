@@ -183,59 +183,56 @@ const SoftwareDevelopment = () => {
     </section>
 
     {/* ─── AI USP ─── */}
-    <section className="bg-gray-50 py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ed2024]/8 border border-[#ed2024]/20 text-[#ed2024] text-xs font-semibold mb-5 uppercase tracking-widest">
-              Our USP
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0a] mb-4 leading-tight">
-              Smarter Development.<br /><span className="text-[#ed2024]">Faster Delivery.</span>
-            </h2>
-            <p className="text-gray-500 text-lg leading-relaxed mb-8">
-              Unlike traditional development companies, we use AI and automation at every stage of the build.
-            </p>
-            <div className="space-y-3">
-              {[
-                { label: 'Faster project completion', bg: 'bg-blue-50', icon: 'text-blue-500' },
-                { label: 'Reduced development cost', bg: 'bg-emerald-50', icon: 'text-emerald-500' },
-                { label: 'Higher accuracy & performance', bg: 'bg-violet-50', icon: 'text-violet-500' },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <div className={`w-6 h-6 rounded-full ${item.bg} flex items-center justify-center shrink-0`}>
-                    <CheckCircle2 size={13} className={item.icon} />
-                  </div>
-                  <span className="text-[#0a0a0a] font-semibold">{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+    <section className="py-24 px-6 overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f5f3ff 35%, #fdf2f8 65%, #fff7ed 100%)' }}>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-200/20 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-200/20 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-violet-200/15 rounded-full blur-[80px]" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ed2024]/8 border border-[#ed2024]/20 text-[#ed2024] text-xs font-semibold mb-5 uppercase tracking-widest">
+            Our USP
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0a] mb-4 leading-tight">
+            Smarter Development.<br /><span className="text-[#ed2024]">Faster Delivery.</span>
+          </h2>
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            Unlike traditional development companies, we use AI and automation at every stage of the build.
+          </p>
+        </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
-            <div className="rounded-3xl bg-violet-50 border border-violet-100 p-8 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-violet-200/30 rounded-full blur-[60px]" />
-              <div className="relative z-10 space-y-4">
-                {[
-                  { icon: Brain, label: 'AI-assisted coding & testing', color: 'bg-blue-100 text-blue-500' },
-                  { icon: Zap, label: 'Automated development workflows', color: 'bg-violet-100 text-violet-500' },
-                  { icon: BarChart3, label: 'Smart analytics integration', color: 'bg-emerald-100 text-emerald-500' },
-                  { icon: TrendingUp, label: 'Continuous improvement systems', color: 'bg-orange-100 text-orange-400' },
-                ].map((item, i) => (
-                  <motion.div key={item.label}
-                    initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, duration: 0.4 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-black/5 hover:shadow-sm transition-all">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${item.color.split(' ')[0]}`}>
-                      <item.icon size={16} className={item.color.split(' ')[1]} />
-                    </div>
-                    <span className="text-gray-700 text-sm font-medium">{item.label}</span>
-                  </motion.div>
-                ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          {[
+            { icon: Brain, stat: '3x', statLabel: 'Faster', title: 'AI-Assisted Coding', desc: 'We use AI tools internally to write, review, and test code faster than traditional teams.', color: 'text-blue-500', bg: 'bg-blue-100', border: 'border-blue-100' },
+            { icon: Zap, stat: '50%', statLabel: 'Cost Saved', title: 'Automated Workflows', desc: 'Automated pipelines eliminate manual bottlenecks and reduce errors across every sprint.', color: 'text-violet-500', bg: 'bg-violet-100', border: 'border-violet-100' },
+            { icon: BarChart3, stat: '99%', statLabel: 'Accuracy', title: 'Smart Analytics', desc: 'Every project ships with integrated analytics to measure performance from day one.', color: 'text-emerald-500', bg: 'bg-emerald-100', border: 'border-emerald-100' },
+            { icon: TrendingUp, stat: '∞', statLabel: 'Scalable', title: 'Continuous Improvement', desc: 'Post-launch we keep optimizing — your software gets smarter and faster over time.', color: 'text-orange-500', bg: 'bg-orange-100', border: 'border-orange-100' },
+          ].map((item, i) => (
+            <motion.div key={item.title}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className={`rounded-2xl bg-white/80 backdrop-blur-sm border ${item.border} p-6 hover:shadow-md transition-all`}
+            >
+              <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center mb-5`}>
+                <item.icon size={18} className={item.color} />
               </div>
-            </div>
-          </motion.div>
+              <div className={`text-3xl font-black ${item.color} leading-none`}>{item.stat}</div>
+              <div className="text-gray-400 text-xs mb-4 mt-0.5">{item.statLabel}</div>
+              <h3 className="text-[#0a0a0a] font-bold text-sm mb-2">{item.title}</h3>
+              <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="flex flex-wrap justify-center gap-3">
+          {['Faster project completion', 'Reduced development cost', 'Higher accuracy & performance'].map((item) => (
+            <div key={item} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 border border-black/10">
+              <CheckCircle2 size={13} className="text-[#ed2024]" />
+              <span className="text-gray-700 text-sm font-medium">{item}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
 
