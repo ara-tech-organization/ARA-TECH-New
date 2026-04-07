@@ -1,8 +1,16 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, ArrowRight, MessageSquare, Clock, Brain, Smartphone, Globe, Zap, Layers, PenTool, CheckCircle2 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Mail, Phone, MapPin, Send, ArrowRight, MessageSquare, Clock, Brain, Smartphone, Globe, Zap, Layers, PenTool, CheckCircle2, Plus, Minus } from 'lucide-react'
 import SectionWrapper from '../components/SectionWrapper'
 import GlassCard from '../components/GlassCard'
+
+const faqs = [
+  { q: 'How quickly can you start on my project?', a: 'We typically onboard new projects within 1–2 weeks of signing. For urgent projects, we can often start within days.', color: 'bg-blue-50', border: 'border-blue-100', accent: 'text-blue-400', num: 'text-blue-100' },
+  { q: 'Do you work with startups or only enterprises?', a: 'We work with both — from pre-revenue startups building their first MVP to enterprise companies automating complex workflows.', color: 'bg-violet-50', border: 'border-violet-100', accent: 'text-violet-400', num: 'text-violet-100' },
+  { q: 'What makes ARA different from other agencies?', a: "Our AI-first approach. We don't just build traditional software — we integrate AI into our development process and your final product. This means faster delivery, lower costs, and smarter outcomes.", color: 'bg-emerald-50', border: 'border-emerald-100', accent: 'text-emerald-400', num: 'text-emerald-100' },
+  { q: 'Can you work within our existing tech stack?', a: 'Yes. We have broad expertise across modern tech stacks and can integrate seamlessly with your existing systems, APIs, and infrastructure.', color: 'bg-orange-50', border: 'border-orange-100', accent: 'text-orange-300', num: 'text-orange-100' },
+  { q: 'What does a typical project engagement look like?', a: 'Discovery call → detailed proposal → design/architecture → agile development sprints → launch and support. Every step is transparent and collaborative.', color: 'bg-pink-50', border: 'border-pink-100', accent: 'text-pink-400', num: 'text-pink-100' },
+]
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } }
 const fadeUp = { hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } } }
@@ -23,6 +31,68 @@ const contactDetails = [
   { icon: MapPin, label: 'Location', value: 'Global — Remote-First', href: null, iconBg: 'bg-emerald-50', iconColor: 'text-emerald-500' },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours', href: null, iconBg: 'bg-orange-50', iconColor: 'text-orange-400' },
 ]
+
+function FAQAccordion() {
+  const [openIndex, setOpenIndex] = useState(null)
+  return (
+    <div className="flex-1 space-y-3">
+      {faqs.map((faq, i) => (
+        <FAQItem key={faq.q} faq={faq} index={i}
+          open={openIndex === i}
+          onToggle={() => setOpenIndex(openIndex === i ? null : i)} />
+      ))}
+    </div>
+  )
+}
+
+function FAQItem({ faq, index, open, onToggle }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.07, duration: 0.45 }}
+    >
+      <button
+        onClick={onToggle}
+        className={`w-full text-left rounded-2xl border transition-all duration-300 overflow-hidden ${
+          open ? `${faq.color} ${faq.border}` : 'bg-white border-black/6 hover:border-black/12'
+        }`}
+      >
+        {/* Question row */}
+        <div className="flex items-center gap-5 p-6">
+          <span className={`text-5xl font-black leading-none select-none shrink-0 transition-colors duration-300 ${open ? faq.num : 'text-black/6'}`}>
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span className={`font-black text-base flex-1 text-left transition-colors duration-200 ${open ? 'text-[#0a0a0a]' : 'text-[#0a0a0a]'}`}>
+            {faq.q}
+          </span>
+          <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+            open ? `bg-white ${faq.accent}` : 'bg-gray-100 text-gray-400'
+          }`}>
+            {open ? <Minus size={14} /> : <Plus size={14} />}
+          </span>
+        </div>
+
+        {/* Answer */}
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <div className="px-6 pb-6 pl-[84px]">
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </button>
+    </motion.div>
+  )
+}
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', projectType: '', message: '' })
@@ -199,28 +269,25 @@ const Contact = () => {
       </SectionWrapper>
 
       {/* ─── FAQ ─── */}
-      <SectionWrapper className="bg-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ed2024]/8 border border-[#ed2024]/20 text-[#ed2024] text-xs font-semibold mb-4 uppercase tracking-widest">FAQ</div>
-            <h2 className="text-3xl font-black text-[#0a0a0a]">Common Questions</h2>
+      <section className="bg-white py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-16">
+
+            {/* Left — sticky label */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+              className="lg:w-72 shrink-0">
+              <div className="lg:sticky lg:top-32">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ed2024]/8 border border-[#ed2024]/20 text-[#ed2024] text-xs font-semibold mb-5 uppercase tracking-widest">FAQ</div>
+                <h2 className="text-4xl md:text-5xl font-black text-[#0a0a0a] leading-tight mb-4">Common<br />Questions</h2>
+                <p className="text-gray-400 text-sm leading-relaxed">Everything you need to know before starting your project with us.</p>
+              </div>
+            </motion.div>
+
+            {/* Right — accordion */}
+            <FAQAccordion />
           </div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-            {[
-              { q: 'How quickly can you start on my project?', a: 'We typically onboard new projects within 1–2 weeks of signing. For urgent projects, we can often start within days.' },
-              { q: 'Do you work with startups or only enterprises?', a: 'We work with both — from pre-revenue startups building their first MVP to enterprise companies automating complex workflows.' },
-              { q: 'What makes ARA different from other agencies?', a: "Our AI-first approach. We don't just build traditional software — we integrate AI into our development process and your final product. This means faster delivery, lower costs, and smarter outcomes." },
-              { q: 'Can you work within our existing tech stack?', a: 'Yes. We have broad expertise across modern tech stacks and can integrate seamlessly with your existing systems, APIs, and infrastructure.' },
-              { q: 'What does a typical project engagement look like?', a: 'Discovery call → detailed proposal → design/architecture → agile development sprints → launch and support. Every step is transparent and collaborative.' },
-            ].map((faq, i) => (
-              <GlassCard key={faq.q} delay={i * 0.07}>
-                <h4 className="text-[#0a0a0a] font-bold mb-2">{faq.q}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
-              </GlassCard>
-            ))}
-          </motion.div>
         </div>
-      </SectionWrapper>
+      </section>
     </div>
   )
 }

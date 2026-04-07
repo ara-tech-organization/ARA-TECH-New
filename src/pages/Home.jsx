@@ -65,7 +65,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ed2024]/8 border border-[#ed2024]/20 text-[#ed2024] text-xs font-semibold mb-8 uppercase tracking-widest"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ed2024]/8 border border-[#ed2024]/20 text-[#ed2024] text-xs font-semibold mb-8 mt-6 uppercase tracking-widest"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#ed2024] animate-pulse" />
             AI-First Technology Company
@@ -290,8 +290,10 @@ const Home = () => {
             <motion.div
               key={ind.label}
               variants={{ hidden: { opacity: 0, scale: 0.92 }, visible: { opacity: 1, scale: 1, transition: { delay: i * 0.06 } } }}
-              whileHover={{ scale: 1.04 }}
-              className="flex flex-col items-center gap-3 p-5 rounded-2xl bg-white border border-black/6 hover:border-black/12 hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-default shadow-sm"
+              animate={{ y: i % 2 === 0 ? [0, -10, 0] : [0, 10, 0] }}
+              transition={{ duration: 2.4, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut', delay: i * 0.15 }}
+              whileHover={{ scale: 1.06, y: -10 }}
+              className="flex flex-col items-center gap-3 p-5 rounded-2xl bg-white border border-black/6 hover:border-black/12 hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-colors duration-300 cursor-default shadow-sm"
             >
               <div className={`w-10 h-10 rounded-xl ${ind.iconBg} flex items-center justify-center`}>
                 <ind.icon size={19} className={ind.iconColor} />
