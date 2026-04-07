@@ -79,7 +79,7 @@ const AnimatedRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AnimatedRoutes />
     </BrowserRouter>
   )
