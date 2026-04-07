@@ -20,26 +20,43 @@ const Disclaimer = () => {
         </div>
         <p className="text-xs text-gray-400 uppercase tracking-widest mb-12">Effective Date: 07/04/2026</p>
 
-        <p className="text-gray-600 text-sm leading-relaxed mb-10">
-          All information and services provided by <span className="text-[#0a0a0a] font-semibold">ARA Discover Technologies</span> are for general business purposes.
-        </p>
+        <div className="space-y-10">
+          {/* Introduction */}
+          <section>
+            <p className="text-gray-600 text-sm leading-relaxed mb-10">
+              All information and services provided by <span className="text-[#0a0a0a] font-semibold">ARA Discover Technologies</span> are for general business purposes.
+            </p>
+          </section>
 
-        <div className="space-y-6">
-          <h2 className="text-[#0a0a0a] font-bold text-lg flex items-center gap-2">
-            <span className="text-[#ed2024] font-black">Key Points</span>
-          </h2>
-          <ul className="space-y-3">
-            {[
-              'We do not guarantee specific business outcomes',
-              'AI-based outputs may vary',
-              'We are not responsible for third-party services',
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ed2024] mt-1.5 shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <div className="h-px bg-gray-200" />
+
+          {/* Section 1: Key Points */}
+          <section>
+            <h2 className="text-[#0a0a0a] font-bold text-lg mb-4 flex items-center gap-2">
+              <span className="text-[#ed2024] font-black">1.</span> Key Points
+            </h2>
+            <ul className="space-y-3">
+              {[
+                'We do not guarantee specific business outcomes',
+                'AI-based outputs may vary',
+                'We are not responsible for third-party services',
+              ].map((item, index) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                  <span className="text-[#ed2024] font-bold shrink-0">{index + 1}.</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <div className="h-px bg-gray-200" />
+
+          {/* Final Note */}
+          <section>
+            <p className="text-gray-400 text-xs italic">
+              * This legal disclaimer is subject to change without prior notice.
+            </p>
+          </section>
         </div>
       </div>
     </motion.div>
