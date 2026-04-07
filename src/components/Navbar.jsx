@@ -13,6 +13,16 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ]
 
+const servicePaths = [
+  '/services',
+  '/software-development',
+  '/mobile-app-development',
+  '/website-development',
+  '/ai-automation',
+  '/product-development',
+  '/ui-ux-design',
+]
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -28,7 +38,17 @@ const Navbar = () => {
     setMobileOpen(false)
   }, [location])
 
-  const isActive = (path) => path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/'
+    }
+
+    if (path === '/services') {
+      return servicePaths.some((servicePath) => location.pathname.startsWith(servicePath))
+    }
+
+    return location.pathname.startsWith(path)
+  }
 
   return (
     <motion.header
