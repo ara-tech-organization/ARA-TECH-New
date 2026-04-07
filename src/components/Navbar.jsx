@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import headerLogo from '../assets/Header-ARA-TEch.png'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -43,14 +44,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-[#ed2024] flex items-center justify-center shadow-md shadow-[#ed2024]/25 group-hover:shadow-[#ed2024]/40 transition-all duration-300">
-            <Zap size={16} className="text-white fill-white" />
-          </div>
-          <div>
-            <span className="font-black text-[#0a0a0a] text-lg leading-none tracking-tight">ARA</span>
-            <span className="block text-[9px] text-gray-400 leading-none tracking-[0.15em] uppercase mt-0.5">Discover Technologies</span>
-          </div>
+        <Link to="/" className="flex items-center">
+          <img src={headerLogo} alt="ARA Discover Technologies" className="h-14 w-auto object-contain" />
         </Link>
 
         {/* Desktop Nav */}

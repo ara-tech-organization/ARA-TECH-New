@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Zap, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import footerLogo from '../assets/Footer-ARA-TEch.png'
 
 const footerServices = [
   { label: 'Software Development', path: '/software-development' },
@@ -30,14 +31,8 @@ const Footer = () => {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2.5 mb-5 w-fit group">
-              <div className="w-9 h-9 rounded-xl bg-[#ed2024] flex items-center justify-center shadow-lg shadow-[#ed2024]/30 group-hover:shadow-[#ed2024]/50 transition-all">
-                <Zap size={18} className="text-white fill-white" />
-              </div>
-              <div>
-                <span className="font-black text-white text-lg leading-none">ARA</span>
-                <span className="block text-[9px] text-gray-500 leading-none tracking-[0.15em] uppercase mt-0.5">Discover Technologies</span>
-              </div>
+            <Link to="/" className="flex items-center mb-5 w-fit">
+              <img src={footerLogo} alt="ARA Discover Technologies" className="h-14 w-auto object-contain" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Next-generation tech company delivering intelligent digital solutions powered by AI and Automation.
