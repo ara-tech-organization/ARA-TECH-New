@@ -57,29 +57,29 @@ const Footer = () => {
               <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap relative z-10">
                 <Link to="/privacy-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Privacy Policy</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/terms-and-conditions" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Terms & Conditions</Link>
+                <Link to="/terms-and-conditions" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Terms & Conditions</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/cookies-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Cookie Policy</Link>
+                <Link to="/cookies-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Cookie Policy</Link>
               </div>
               <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap relative z-10">
-                <Link to="/payment-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Payment Policy</Link>
+                <Link to="/payment-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Payment Policy</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/refund-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Refund & Cancellation</Link>
+                <Link to="/refund-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Refund & Cancellation</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/service-delivery-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Service Delivery Policy</Link>
+                <Link to="/service-delivery-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Service Delivery Policy</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/disclaimer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Disclaimer</Link>
+                <Link to="/disclaimer" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Disclaimer</Link>
               </div>
               <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap relative z-10">
-                <Link to="/data-security-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Data Security</Link>
+                <Link to="/data-security-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Data Security</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/nda-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">NDA Policy</Link>
+                <Link to="/nda-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">NDA Policy</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/ai-usage-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">AI Usage</Link>
+                <Link to="/ai-usage-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">AI Usage</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/sla-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">SLA</Link>
+                <Link to="/sla-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">SLA</Link>
                 <span className="text-gray-700 text-xs">|</span>
-                <Link to="/compliance-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Compliance / GDPR</Link>
+                <Link to="/compliance-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors cursor-pointer">Compliance / GDPR</Link>
               </div>
             </div>
           </div>
