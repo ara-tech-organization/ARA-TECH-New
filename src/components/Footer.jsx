@@ -25,8 +25,8 @@ const Footer = () => {
       {/* Red top accent line */}
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#ed2024] to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:grid-cols-[minmax(320px,1fr)_1fr_1fr_1fr]">
 
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -54,6 +54,35 @@ const Footer = () => {
               <div className="flex items-start gap-2.5 text-sm text-gray-400">
                 <MapPin size={14} className="text-[#ed2024] mt-0.5 shrink-0" />
                 Global — Remote-First Company
+              </div>
+            </div>
+            <div className="mt-6 pt-5 border-t border-white/8 flex flex-col gap-2">
+              <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap">
+                <Link to="/privacy-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Privacy Policy</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/terms-and-conditions" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Terms & Conditions</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/cookies-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Cookie Policy</Link>
+              </div>
+              <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap">
+                <Link to="/payment-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Payment Policy</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/refund-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Refund & Cancellation</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/service-delivery-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Service Delivery Policy</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/disclaimer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Disclaimer</Link>
+              </div>
+              <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap">
+                <Link to="/data-security-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Data Security</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/nda-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">NDA Policy</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/ai-usage-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">AI Usage</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/sla-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">SLA</Link>
+                <span className="text-gray-700 text-xs">|</span>
+                <Link to="/compliance-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Compliance / GDPR</Link>
               </div>
             </div>
           </div>
@@ -113,7 +142,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-6 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-6 pt-6 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600">
             &copy; {new Date().getFullYear()} ARA Discover Technologies. All rights reserved.
           </p>
