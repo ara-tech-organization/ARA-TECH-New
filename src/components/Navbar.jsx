@@ -38,6 +38,8 @@ const Navbar = () => {
     setMobileOpen(false)
   }, [location])
 
+  const hasSolidBackground = scrolled || location.pathname !== '/'
+
   const isActive = (path) => {
     if (path === '/') {
       return location.pathname === '/'
@@ -56,7 +58,7 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-        scrolled
+        hasSolidBackground
           ? 'bg-white/85 backdrop-blur-2xl border-b border-black/6 shadow-[0_2px_20px_rgba(0,0,0,0.06)]'
           : 'bg-white/60 backdrop-blur-xl'
       }`}

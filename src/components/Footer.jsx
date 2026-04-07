@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import { Phone, MapPin, ArrowUpRight } from 'lucide-react'
 import footerLogo from '../assets/Footer-ARA-TEch.png'
 
 const footerServices = [
@@ -38,22 +38,23 @@ const Footer = () => {
               Next-generation tech company delivering intelligent digital solutions powered by AI and Automation.
             </p>
             <div className="space-y-3">
-              <a href="mailto:hello@aradiscover.com" className="flex items-center gap-2.5 text-sm text-gray-400 hover:text-white transition-colors">
-                <Mail size={14} className="text-[#ed2024]" />
-                hello@aradiscover.com
-              </a>
-              <a href="tel:+1234567890" className="flex items-center gap-2.5 text-sm text-gray-400 hover:text-white transition-colors">
+              <a href="tel:+918110015152" className="flex items-center gap-2.5 text-sm text-gray-400 hover:text-white transition-colors">
                 <Phone size={14} className="text-[#ed2024]" />
-                +1 (234) 567-8900
+                81100 15152
               </a>
-              <div className="flex items-start gap-2.5 text-sm text-gray-400">
+              <a
+                href="https://maps.google.com/?q=67A%2C%20Giri%20Rd%2C%20Srinivasapuram%2C%20Balaganapathy%20Nagar%2C%20Thanjavur%2C%20Tamil%20Nadu%20613009"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-start gap-2.5 text-sm text-gray-400 hover:text-white transition-colors"
+              >
                 <MapPin size={14} className="text-[#ed2024] mt-0.5 shrink-0" />
-                Global — Remote-First Company
-              </div>
+                67A, Giri Rd, Srinivasapuram, Balaganapathy Nagar, Thanjavur, Tamil Nadu 613009
+              </a>
             </div>
             <div className="mt-6 pt-5 border-t border-white/8 flex flex-col gap-2">
               <div className="flex items-center gap-2 flex-nowrap whitespace-nowrap">
-                <Link to="/privacy-policy" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Privacy Policy</Link>
+                <Link to="/privacy-policy" target="_blank" rel="noreferrer" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Privacy Policy</Link>
                 <span className="text-gray-700 text-xs">|</span>
                 <Link to="/terms-and-conditions" className="text-xs text-gray-600 hover:text-[#ed2024] font-medium transition-colors">Terms & Conditions</Link>
                 <span className="text-gray-700 text-xs">|</span>
@@ -141,9 +142,9 @@ const Footer = () => {
           <p className="text-xs text-gray-600">
             &copy; {new Date().getFullYear()} ARA Discover Technologies. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-xs text-gray-600">
+          {/* <div className="flex items-center gap-1 text-xs text-gray-600">
             Powered by <span className="text-[#ed2024] font-semibold ml-1">AI & Automation</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

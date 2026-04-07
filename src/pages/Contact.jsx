@@ -26,9 +26,23 @@ const projectTypes = [
 ]
 
 const contactDetails = [
-  { icon: Mail, label: 'Email Us', value: 'hello@aradiscover.com', href: 'mailto:hello@aradiscover.com', iconBg: 'bg-blue-50', iconColor: 'text-blue-500' },
-  { icon: Phone, label: 'Call Us', value: '+1 (234) 567-8900', href: 'tel:+12345678900', iconBg: 'bg-violet-50', iconColor: 'text-violet-500' },
-  { icon: MapPin, label: 'Location', value: 'Global — Remote-First', href: null, iconBg: 'bg-emerald-50', iconColor: 'text-emerald-500' },
+  { icon: Phone, label: 'Call Us', value: '81100 15152', href: 'tel:+918110015152', iconBg: 'bg-violet-50', iconColor: 'text-violet-500' },
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: '67A, Giri Rd, Srinivasapuram, Balaganapathy Nagar, Thanjavur, Tamil Nadu 613009',
+    href: 'https://maps.google.com/?q=67A%2C%20Giri%20Rd%2C%20Srinivasapuram%2C%20Balaganapathy%20Nagar%2C%20Thanjavur%2C%20Tamil%20Nadu%20613009',
+    iconBg: 'bg-emerald-50',
+    iconColor: 'text-emerald-500',
+  },
+  // {
+  //   icon: MapPin,
+  //   label: 'Map',
+  //   value: 'Open in Google Maps',
+  //   href: 'https://maps.google.com/?q=67A%2C%20Giri%20Rd%2C%20Srinivasapuram%2C%20Balaganapathy%20Nagar%2C%20Thanjavur%2C%20Tamil%20Nadu%20613009',
+  //   iconBg: 'bg-blue-50',
+  //   iconColor: 'text-blue-500',
+  // },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours', href: null, iconBg: 'bg-orange-50', iconColor: 'text-orange-400' },
 ]
 
@@ -266,6 +280,43 @@ const Contact = () => {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-8 rounded-3xl bg-white border border-black/6 shadow-sm p-4 md:p-5 overflow-hidden relative"
+        >
+          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#ed2024]/40 to-transparent" />
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-4 px-1">
+            <div>
+              <h3 className="text-[#0a0a0a] font-black text-xl">Visit Our Office</h3>
+              <p className="text-gray-500 text-sm">
+                67A, Giri Rd, Srinivasapuram, Balaganapathy Nagar, Thanjavur, Tamil Nadu 613009
+              </p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=67A%2C%20Giri%20Rd%2C%20Srinivasapuram%2C%20Balaganapathy%20Nagar%2C%20Thanjavur%2C%20Tamil%20Nadu%20613009"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-[#ed2024] text-white text-sm font-semibold hover:bg-[#c0181c] transition-all w-full md:w-auto"
+            >
+              Open in Google Maps
+            </a>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d886.6999304955511!2d79.12595137504267!3d10.785152315038465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baab986fba40a6b%3A0xc60663bc6b08e04e!2sARA%20Discoveries%20Pvt%20Ltd%20%E2%80%93%20IT%20Solutions%20%26%20Digital%20Marketing!5e1!3m2!1sen!2sin!4v1775563924257!5m2!1sen!2sin"
+            width="100%"
+            height="380"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-2xl"
+            title="ARA Discoveries map location"
+          />
+        </motion.div>
       </SectionWrapper>
 
       {/* ─── FAQ ─── */}

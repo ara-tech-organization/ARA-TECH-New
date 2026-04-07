@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Layers, Zap, Brain, ArrowRight, Sparkles, Clock } from 'lucide-react'
+import { Layers, Zap, ArrowRight, Sparkles, Clock } from 'lucide-react'
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } }
 const fadeUp = { hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } } }
@@ -8,31 +8,23 @@ const fadeUp = { hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0, tra
 const products = [
   {
     icon: Zap,
-    title: 'Business Automation Tools',
-    desc: 'Smart automation systems that eliminate repetitive tasks, streamline workflows, and help your business run efficiently — with less manual effort.',
-    features: ['Workflow Automation', 'Data Entry Elimination', 'Notification Systems', 'Report Generation'],
-    iconBg: 'bg-blue-50', iconColor: 'text-blue-500', border: 'border-blue-100',
+    title: 'SchoolMate',
+    desc: 'SchoolMate is a smart platform for easy school management and parent communication. It helps schools manage students, attendance, academics, fees, and everyday updates from one simple system.',
+    features: ['Student & Staff Management', 'Attendance Tracking', 'Parent Communication', 'Fee & Academic Updates'],
+    iconBg: 'bg-blue-50', iconColor: 'text-blue-500', bulletColor: 'bg-blue-500', border: 'border-blue-100',
   },
   {
     icon: Layers,
-    title: 'SaaS Platforms',
-    desc: 'Cloud-based software platforms built for scale — subscription-based, multi-tenant, and ready for global users from day one.',
-    features: ['Multi-Tenant Architecture', 'Subscription Billing', 'Role-Based Access', 'Analytics Built-In'],
-    iconBg: 'bg-violet-50', iconColor: 'text-violet-500', border: 'border-violet-100',
-  },
-  {
-    icon: Brain,
-    title: 'AI-Based Applications',
-    desc: 'Next-generation applications powered by Artificial Intelligence — from smart recommendations to intelligent automation and predictive systems.',
-    features: ['AI Recommendations', 'Predictive Analytics', 'Natural Language Processing', 'Intelligent Automation'],
-    iconBg: 'bg-emerald-50', iconColor: 'text-emerald-500', border: 'border-emerald-100',
+    title: 'CMS',
+    desc: 'CMS is our client management system built to organize leads, client records, follow-ups, project activity, and internal coordination in one place. It helps teams stay structured, responsive, and efficient throughout the client lifecycle.',
+    features: ['Lead & Client Records', 'Task and Follow-Up Tracking', 'Team Coordination', 'Reports & Status Visibility'],
+    iconBg: 'bg-violet-50', iconColor: 'text-violet-500', bulletColor: 'bg-violet-500', border: 'border-violet-100',
   },
 ]
 
 const Products = () => {
   return (
     <div>
-      {/* ─── HERO ─── */}
       <section className="relative pt-40 pb-20 overflow-hidden bg-white">
         <div className="absolute inset-0 dot-grid opacity-50" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#ed2024]/5 rounded-full blur-[110px]" />
@@ -45,22 +37,28 @@ const Products = () => {
               Digital Products That<br /><span className="text-[#ed2024]">Solve Real Problems</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-gray-500 text-xl leading-relaxed">
-              We create innovative digital products that solve real-world problems — built with AI, automation, and modern technology.
+              We create innovative digital products that solve real-world problems - built with AI, automation, and modern technology.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* ─── PRODUCTS ─── */}
       <section className="bg-gray-50 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}
-            className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05 }}
+            className="grid md:grid-cols-2 gap-6"
+          >
             {products.map((p, i) => (
-              <motion.div key={p.title}
+              <motion.div
+                key={p.title}
                 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } } }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`relative rounded-3xl bg-white border ${p.border} p-8 overflow-hidden group hover:shadow-xl hover:shadow-black/6 transition-all duration-300`}>
+                className={`relative rounded-3xl bg-white border ${p.border} p-8 overflow-hidden group hover:shadow-xl hover:shadow-black/6 transition-all duration-300`}
+              >
                 <div className={`absolute -top-10 -right-10 w-40 h-40 ${p.iconBg} rounded-full blur-[50px] opacity-60`} />
                 <div className="relative z-10">
                   <div className={`w-12 h-12 rounded-2xl ${p.iconBg} flex items-center justify-center mb-6`}>
@@ -71,7 +69,7 @@ const Products = () => {
                   <div className="space-y-2">
                     {p.features.map((f) => (
                       <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${p.iconColor.replace('text-', 'bg-')}`} />
+                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${p.bulletColor}`} />
                         {f}
                       </div>
                     ))}
@@ -81,9 +79,13 @@ const Products = () => {
             ))}
           </motion.div>
 
-          {/* Coming Soon Banner */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-8 relative rounded-3xl bg-white border border-black/6 p-10 overflow-hidden text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="mt-8 relative rounded-3xl bg-white border border-black/6 p-10 overflow-hidden text-center"
+          >
             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-32 bg-[#ed2024]/5 rounded-full blur-[50px]" />
             <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
@@ -98,11 +100,14 @@ const Products = () => {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
       <section className="bg-[#0a0a0a] py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="relative rounded-3xl border border-white/8 p-12 md:p-20 text-center overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl border border-white/8 p-12 md:p-20 text-center overflow-hidden"
+          >
             <div className="absolute inset-0 dot-grid opacity-[0.04]" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[#ed2024]/12 rounded-full blur-[70px]" />
             <div className="relative z-10">
